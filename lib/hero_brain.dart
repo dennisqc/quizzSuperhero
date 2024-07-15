@@ -28,9 +28,9 @@ class QuizzHero {
         urlHero:
             "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/12/173-1730826_thor-ragnarok-wallpaper-marvel-cinematic-universe-thor-ragnarok.jpg",
         answer: [
-          AnswerModel(answer: "Capitan America", isCorrect: true),
+          AnswerModel(answer: "Capitan America", isCorrect: false),
           AnswerModel(answer: "Black Panter", isCorrect: false),
-          AnswerModel(answer: "Black Panter", isCorrect: false),
+          AnswerModel(answer: "Thor", isCorrect: true),
           AnswerModel(answer: "Black Panter", isCorrect: false),
         ]),
     SuperheroModels(
@@ -38,9 +38,9 @@ class QuizzHero {
         urlHero:
             "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/12/spider-man_main-1280x720.jpg",
         answer: [
-          AnswerModel(answer: "Capitan America", isCorrect: true),
+          AnswerModel(answer: "Capitan America", isCorrect: false),
           AnswerModel(answer: "Black Panter", isCorrect: false),
-          AnswerModel(answer: "Black Panter", isCorrect: false),
+          AnswerModel(answer: "Spider Man", isCorrect: true),
           AnswerModel(answer: "Black Panter", isCorrect: false),
         ]),
     SuperheroModels(
@@ -48,9 +48,9 @@ class QuizzHero {
         urlHero:
             "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/12/ocA7mZJmT97HzvesMjkXKA.jpg",
         answer: [
-          AnswerModel(answer: "Capitan America", isCorrect: true),
+          AnswerModel(answer: "Capitan America", isCorrect: false),
           AnswerModel(answer: "Black Panter", isCorrect: false),
-          AnswerModel(answer: "Black Panter", isCorrect: false),
+          AnswerModel(answer: "Viuda Negra", isCorrect: true),
           AnswerModel(answer: "Black Panter", isCorrect: false),
         ]),
     SuperheroModels(
@@ -58,9 +58,9 @@ class QuizzHero {
         urlHero:
             "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/12/Chadwick-Boseman-as-Black-Panther-Featured-Image.jpg",
         answer: [
-          AnswerModel(answer: "Capitan America", isCorrect: true),
+          AnswerModel(answer: "Capitan America", isCorrect: false),
           AnswerModel(answer: "Black Panter", isCorrect: false),
-          AnswerModel(answer: "Black Panter", isCorrect: false),
+          AnswerModel(answer: "Black Panter", isCorrect: true),
           AnswerModel(answer: "Black Panter", isCorrect: false),
         ]),
     SuperheroModels(
@@ -68,19 +68,19 @@ class QuizzHero {
         urlHero:
             "https://oyster.ignimgs.com/wordpress/stg.ign.com/2021/02/hulk.jpg",
         answer: [
-          AnswerModel(answer: "Capitan America", isCorrect: true),
+          AnswerModel(answer: "Capitan America", isCorrect: false),
           AnswerModel(answer: "Black Panter", isCorrect: false),
           AnswerModel(answer: "Black Panter", isCorrect: false),
-          AnswerModel(answer: "Black Panter", isCorrect: false),
+          AnswerModel(answer: "Hulk", isCorrect: true),
         ]),
     SuperheroModels(
         hero: 4,
         urlHero:
             "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/12/antman-falcon.jpg",
         answer: [
-          AnswerModel(answer: "Capitan America", isCorrect: true),
+          AnswerModel(answer: "Capitan America", isCorrect: false),
           AnswerModel(answer: "Black Panter", isCorrect: false),
-          AnswerModel(answer: "Black Panter", isCorrect: false),
+          AnswerModel(answer: "Antman", isCorrect: true),
           AnswerModel(answer: "Black Panter", isCorrect: false),
         ]),
     SuperheroModels(
@@ -88,9 +88,9 @@ class QuizzHero {
         urlHero:
             "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/12/mcu-heroes-star-lord.jpg",
         answer: [
-          AnswerModel(answer: "Capitan America", isCorrect: true),
+          AnswerModel(answer: "Capitan America", isCorrect: false),
           AnswerModel(answer: "Black Panter", isCorrect: false),
-          AnswerModel(answer: "Black Panter", isCorrect: false),
+          AnswerModel(answer: "Star Lord", isCorrect: true),
           AnswerModel(answer: "Black Panter", isCorrect: false),
         ]),
   ];
@@ -102,5 +102,31 @@ class QuizzHero {
 
   String getOpcion(int index) {
     return superHeroList[heroIndex].answer[index].answer;
+  }
+
+  bool heroCorrect(int index) {
+    return superHeroList[heroIndex].answer[index].isCorrect;
+  }
+
+  String getAnswerNumber() {
+    return (heroIndex + 1).toString();
+  }
+
+  void getHeroNext() {
+    if (heroIndex < superHeroList.length - 1) {
+      heroIndex++;
+    }
+  }
+
+  bool isFinished() {
+    if (heroIndex > superHeroList.length - 2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void restartQuiz() {
+    heroIndex = 0;
   }
 }
